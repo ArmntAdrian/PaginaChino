@@ -1,0 +1,21 @@
+// Layout principal y contenido de la página
+extends ../Layout/index
+
+block content
+    // Contenedor principal centrado
+    .flex.flex-col.items-center.py-12
+        h1.text-5xl.font-extrabold.text-center.text-red-700.mb-1 汉字
+            span.font-light.text-red-400 学院
+        // Título secundario y línea decorativa
+        p.text-xs.text-red-400.tracking-widest.uppercase.mb-2 Aprende chino mandarín
+        .w-8.border-t-2.border-red-300.my-4
+
+        // Tarjeta de mensaje con estilo
+        .w-full.max-w-md.bg-white.shadow-xl.rounded-3xl.border.border-red-100.px-8.py-10
+            // Título de la tarjeta
+            h2.text-2xl.font-semibold.text-red-900.text-center.mb-4= pagina
+            // Mensaje informativo
+            p.text-base.text-red-700.text-center.mb-6.leading-relaxed= mensaje
+            // Botón centrado para iniciar sesión
+            .flex.justify-center
+                a(href='/auth/login' class='inline-flex items-center justify-center rounded-full bg-red-700 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-red-800 mx-auto') Iniciar Sesión
