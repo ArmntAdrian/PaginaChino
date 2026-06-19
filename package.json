@@ -1,0 +1,30 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js",
+    "server": "nodemon ./index.js",
+    "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "mysql2": "^3.22.5",
+    "pug": "^3.0.4",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "nodemon": "^3.1.14",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

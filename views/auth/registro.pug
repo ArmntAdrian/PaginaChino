@@ -1,0 +1,69 @@
+extends ../Layout/index
+
+block content
+    .flex.flex-col.items-center.py-12
+        h1.text-5xl.font-extrabold.text-center.text-red-700.mb-1 汉字
+            span.font-light.text-red-400 学院
+        p.text-xs.text-red-400.tracking-widest.uppercase.mb-2 Aprende chino mandarín
+        .w-8.border-t-2.border-red-300.my-4
+        h2.text-xl.font-semibold.text-red-900.mb-8.text-center= pagina
+
+        if errores
+            .w-full.max-w-md.mb-4
+                div(class="rounded-xl border border-red-200 bg-red-50 p-4")
+                    p.text-red-700.font-bold.text-sm.mb-2 Por favor corrige los siguientes errores:
+                    ul.space-y-1
+                        each error in errores
+                            li(class="flex items-start gap-2 text-red-600 text-sm")
+                                span(class="mt-0.5 shrink-0") ✕
+                                span= error.msg
+
+        .w-full.max-w-md
+            .bg-white.py-10.px-8.shadow-xl.rounded-2xl.border.border-red-100
+                form.space-y-5(method="POST" action="/auth/registro" noValidate)
+
+                    div
+                        label.block.text-xs.uppercase.text-red-700.mb-2.font-bold.tracking-wider(for="nombre") Tu Nombre
+                        input#nombre(
+                            type="text"
+                            name="nombre"
+                            placeholder="Tu nombre completo"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        )
+
+                    div
+                        label.block.text-xs.uppercase.text-red-700.mb-2.font-bold.tracking-wider(for="email") Correo Electrónico
+                        input#email(
+                            type="email"
+                            name="email"
+                            placeholder="correo@ejemplo.com"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        )
+
+                    div
+                        label.block.text-xs.uppercase.text-red-700.mb-2.font-bold.tracking-wider(for="password") Contraseña
+                        input#password(
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        )
+
+                    div
+                        label.block.text-xs.uppercase.text-red-700.mb-2.font-bold.tracking-wider(for="repetir_password") Repetir Contraseña
+                        input#repetirpassword(
+                            type="password"
+                            name="repetir_password"
+                            placeholder="••••••••"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+                        )
+
+                    div.flex.flex-col.gap-3.pt-1(class="sm:flex-row sm:justify-between")
+                        a(href="/auth/login" class="text-sm text-red-600 hover:text-red-800 font-medium transition-colors text-center") ¿Ya tienes cuenta? Inicia Sesión.
+                        a(href="/auth/olvidecontrasenia" class="text-sm text-red-600 hover:text-red-800 font-medium transition-colors text-center") ¿Olvidaste tu contraseña?
+
+                    input(
+                        type="submit"
+                        value="Crear Cuenta"
+                        class="w-full bg-red-700 hover:bg-red-800 active:bg-red-900 text-white font-bold py-3 cursor-pointer rounded-xl transition-colors tracking-wide"
+                    )
