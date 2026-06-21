@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx postcss *)"
+      "Bash(npx postcss *)",
+      "Bash(npm install *)"
     ]
   }
 }
